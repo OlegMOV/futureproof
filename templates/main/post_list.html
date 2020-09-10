@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Усі пости{% endblock %}
+{% block content %}
+{% if tag %}
+<h3 class="text-center text-warning">Усі пости з тегом "{{ tag|upper }}".</h3>
+{% endif %}
+{% for post in object_list %}
+{% include "full_post.html" %}
+{% endfor %}
+{% include "pagination.html" with page=page_obj %}
+{% endblock %}
